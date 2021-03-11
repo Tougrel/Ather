@@ -1,10 +1,9 @@
-import {Logger, SlashCommand, Utils} from "../lib";
+const { SlashCommand, Utils} = require("../lib");
 
-const logs = new Logger();
-module.exports = class ClientCommand extends SlashCommand {
+class ClientCommand extends SlashCommand {
     constructor() {
         super({
-            data: new Utils().commands.role
+            data: new Utils().commands.help
         });
     }
 
@@ -34,10 +33,12 @@ module.exports = class ClientCommand extends SlashCommand {
             }
 
         // Add the new role to user
-        this.member.roles.add(role).catch((err) => logs.error(err));
+        await this.member.roles.add(role).catch((err) => console.error(err));
         this.client.utils.sendResponse(this.client, interaction, {
             type: 4,
             data: {content: `:white_check_mark: Successfully added ${this.options[0].value} role to ${this.member}!`}
         });
     }
 }
+
+module.exports = ClientCommand;

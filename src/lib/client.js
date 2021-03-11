@@ -1,22 +1,21 @@
-import {Collection} from "discord.js";
-import {Logger, Utils} from "./index";
+const {Client, Collection} = require("discord.js");
+const {Utils} = require("./");
 
 /**
  * Custom made client using Discord.js
  * @type {module.Client}
  */
-module.exports = class Client extends Client {
+class GalaxyClient extends Client {
     /**
      * TODO: Add description
      * @param props
      * @returns {Promise<void>}
      */
-    async constructor(props) {
+    constructor(props) {
         super(props);
-        await super().login(process.env.TOKEN);
+        this.login(process.env.TOKEN);
 
         this.commands = new Collection();
-        this.logs = new Logger();
         this.utils = new Utils();
     }
 
@@ -27,3 +26,5 @@ module.exports = class Client extends Client {
         new Utils().loadEvents(this);
     }
 }
+
+module.exports = GalaxyClient;

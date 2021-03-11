@@ -1,7 +1,6 @@
-import {Logger, SlashCommand, Utils} from "../lib";
+const {SlashCommand, Utils} = require("../lib");
 
-const logs = new Logger();
-module.exports = class ClientCommand extends SlashCommand {
+class ClientCommand extends SlashCommand {
     constructor() {
         super({
             data: new Utils().commands.color
@@ -33,9 +32,9 @@ module.exports = class ClientCommand extends SlashCommand {
         await this.manageRole(interaction);
     }
 
-    async manageRole(client, interaction) {
+    async manageRole(interaction) {
         // If role does not exist stop here
-        if (!this.options[0].value) return client.utils.sendResponse(client, interaction, {
+        if (!this.options[0].value) return this.client.utils.sendResponse(this.client, interaction, {
             type: 4,
             data: {content: `:x: Role ${this.options[0].value} not found!`}
         });
@@ -46,10 +45,12 @@ module.exports = class ClientCommand extends SlashCommand {
                 await this.member.roles.remove(ID);
 
         // Add the new role to user
-        this.member.roles.add(this.options[0].value).catch((err) => logs.error(err));
-        client.utils.sendResponse(client, interaction, {
+        await this.member.roles.add(this.options[0].value).catch((err) => console.error(err));
+        this.client.utils.sendResponse(this.client, interaction, {
             type: 4,
             data: {content: `:white_check_mark: Successfully added **${this.guild.roles.cache.get(this.options[0].value).name}** color to ${this.member}!`}
         });
     }
 }
+
+module.exports = ClientCommand;

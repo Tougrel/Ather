@@ -90,5 +90,19 @@
           }
         ]
       }
+    },
+    "help": {
+      "data": {
+        "name": "help",
+        "description": "Shows information about Galaxy Commander",
+        "options": [
+          {
+            "name": "command",
+            "description": "Shows information about the requested command",
+            "type": 3,
+            "required": false
+          }
+        ]
+      }
     }
   }

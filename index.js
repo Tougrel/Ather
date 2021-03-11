@@ -2,10 +2,10 @@
 require("dotenv").config();
 
 /* Import custom client */
-const {Client} = require("./lib/");
+const {GalaxyClient} = require("./src/lib");
 
 /* Create Discord Client */
-const client = new Client({
+const client = new GalaxyClient({
     fetchAllMembers: true,
     ws: {intents: ["GUILDS", "GUILD_MEMBERS"]}
 });

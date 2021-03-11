@@ -1,4 +1,4 @@
-module.exports = class SlashCommand {
+class SlashCommand {
     constructor(options) {
         this.data = options.data;
     }
@@ -6,3 +6,5 @@ module.exports = class SlashCommand {
     run(...params) {
     }
 }
+
+module.exports = SlashCommand;

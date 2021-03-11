@@ -5,7 +5,7 @@ module.exports = {
         client.utils.loadCommands(client);
 
         // Log that the client is ready
-        client.logs.info("Client up and running");
+        console.log("[CLIENT] Client up and running!");
 
         const guild = client.guilds.cache.get(process.env.GUILD_ID);
         client.ws.on("INTERACTION_CREATE", async (interaction) => {

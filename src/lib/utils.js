@@ -1,6 +1,6 @@
-import {readdirSync} from "fs";
+const {readFileSync, readdirSync} = require("fs");
 
-module.exports = class Utils {
+class Utils {
     constants = {
         logger: {
             magenta: "\x1b[35m",
@@ -16,7 +16,7 @@ module.exports = class Utils {
             bold: "\x1b[1m"
         },
     }
-    commands = JSON.parse(readdirSync("./data/commands.json").toString());
+    commands = JSON.parse(readFileSync("./data/commands.json").toString());
 
     sendResponse = (client, interaction, data) => {
         client.api.interactions(interaction.id, interaction.token).callback.post({data: data});
@@ -24,12 +24,13 @@ module.exports = class Utils {
 
     loadCommands = (client) => {
         // Load commands
-        readdirSync("./dist/commands/")
+        readdirSync("./src/commands/")
             .filter((file) => file.endsWith(".js"))
             .forEach((file) => {
-                let command = (new (require(`../commands/${file}`).default)());
+                let command = (new (require(`../commands/${file}`))());
                 client.commands.set(command.data.name, command);
 
+                console.log(command.data)
                 client.api.applications(client.user.id)
                     .guilds(process.env.GUILD_ID).commands.get()
                     .then(async (data) => {
@@ -40,11 +41,11 @@ module.exports = class Utils {
                         // Add the command.
                         if (!cmd) return await client.api.applications(client.user.id)
                             .guilds(process.env.GUILD_ID).commands
-                            .post({data: command.data});
+                            .post(command.data);
 
                         await client.api.applications(client.user.id)
                             .guilds(process.env.GUILD_ID).commands(cmd.id)
-                            .patch({data: command.data});
+                            .patch(command.data);
                     });
             });
 
@@ -52,7 +53,7 @@ module.exports = class Utils {
     }
 
     loadEvents = (client) => {
-        readdirSync("./dist/events")
+        readdirSync("./src/events")
             .filter((file) => file.endsWith(".js"))
             .forEach((file) => {
                 let event = require(`../events/${file}`);
@@ -62,3 +63,5 @@ module.exports = class Utils {
         return this;
     }
 }
+
+module.exports = Utils;
