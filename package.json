@@ -3,7 +3,8 @@
 	"version": "0.1.1",
 	"main": "src/index.js",
 	"scripts": {
-		"start": "node ."
+		"start": "node .",
+		"test": "mocha"
 	},
 	"homepage": "https://github.com/Tougrel/Galaxy-Commander",
 	"repository": "https://github.com/Tougrel/galaxy-commander.git",
@@ -24,6 +25,7 @@
 	"dependencies": {
 		"discord.js": "^12.5.1",
 		"dotenv": "^8.2.0",
-		"moment": "^2.29.1"
+		"moment": "^2.29.1",
+		"mocha": "^8.3.2"
 	}
 }
