@@ -26,13 +26,13 @@ class Utils {
         client.api.interactions(interaction.id, interaction.token).callback.post({data: data});
     }
 
-    loadCommands = (client) => {
+    loadCommands = async (client) => {
         const list = await client.api.applications(client.user.id).guilds(process.env.GUILD_ID).commands.get();
 
         // Load commands
         readdirSync("./src/commands/")
             .filter((file) => file.endsWith(".js"))
-            .forEach((file) => {
+            .forEach(async (file) => {
                 let command = (new (require(`../commands/${file}`))());
                 client.commands.set(command.data.name, command);
 
