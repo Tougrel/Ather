@@ -3,8 +3,7 @@
 	"version": "0.1.1",
 	"main": "src/index.js",
 	"scripts": {
-		"start": "node .",
-		"install": "yarn add discord.js dotenv moment"
+		"start": "node ."
 	},
 	"homepage": "https://github.com/Tougrel/Galaxy-Commander",
 	"repository": "https://github.com/Tougrel/galaxy-commander.git",
