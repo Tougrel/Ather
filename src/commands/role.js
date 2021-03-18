@@ -1,9 +1,9 @@
-const { SlashCommand, Utils} = require("../lib");
+const {SlashCommand, Utils} = require("../lib");
 
 class ClientCommand extends SlashCommand {
     constructor() {
         super({
-            data: new Utils().commands.help
+            data: new Utils().commands.role
         });
     }
 

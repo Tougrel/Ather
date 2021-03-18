@@ -1,108 +1,102 @@
 {
-    "color": {
-      "data": {
-        "name": "color",
-        "description": "Give yourself a color!",
-        "options": [
-          {
-            "name": "name",
-            "description": "Choose a color to add or remove!",
-            "type": 3,
-            "required": true,
-            "choices": [
-              {
-                "name": "Purple",
-                "value": "802159531882709022"
-              },
-              {
-                "name": "Blurple",
-                "value": "802160131566731314"
-              },
-              {
-                "name": "Lime",
-                "value": "802160132293132309"
-              },
-              {
-                "name": "BlueViolet",
-                "value": "802160141465026621"
-              },
-              {
-                "name": "Aqua",
-                "value": "802160613782454274"
-              },
-              {
-                "name": "Coral",
-                "value": "802160615333822545"
-              },
-              {
-                "name": "Red",
-                "value": "808754557110714428"
-              },
-              {
-                "name": "HotPink",
-                "value": "808754663729266758"
-              },
-              {
-                "name": "Green",
-                "value": "808754831267201094"
-              },
-              {
-                "name": "Teal",
-                "value": "808754950606684241"
-              },
-              {
-                "name": "Fuchsia",
-                "value": "808755178475880459"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    "role": {
-      "data": {
-        "name": "role",
-        "description": "Give yourself a role!",
-        "options": [
-          {
-            "name": "name",
-            "description": "Choose a role to add or remove!",
-            "type": 3,
-            "required": true,
-            "choices": [
-              {
-                "name": "allies",
-                "value": "allies"
-              },
-              {
-                "name": "enemies",
-                "value": "enemies"
-              },
-              {
-                "name": "neutral",
-                "value": "neutral"
-              },
-              {
-                "name": "danger",
-                "value": "danger"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    "help": {
-      "data": {
-        "name": "help",
-        "description": "Shows information about Galaxy Commander",
-        "options": [
-          {
-            "name": "command",
-            "description": "Shows information about the requested command",
-            "type": 3,
-            "required": false
-          }
-        ]
-      }
-    }
-  }
+	"color": {
+		"name": "color",
+		"description": "Give yourself a color!",
+		"options": [
+			{
+				"name": "name",
+				"description": "Choose a color to add or remove!",
+				"type": 3,
+				"required": true,
+				"choices": [
+					{
+						"name": "Purple",
+						"value": "802159531882709022"
+					},
+					{
+						"name": "Blurple",
+						"value": "802160131566731314"
+					},
+					{
+						"name": "Lime",
+						"value": "802160132293132309"
+					},
+					{
+						"name": "BlueViolet",
+						"value": "802160141465026621"
+					},
+					{
+						"name": "Aqua",
+						"value": "802160613782454274"
+					},
+					{
+						"name": "Coral",
+						"value": "802160615333822545"
+					},
+					{
+						"name": "Red",
+						"value": "808754557110714428"
+					},
+					{
+						"name": "HotPink",
+						"value": "808754663729266758"
+					},
+					{
+						"name": "Green",
+						"value": "808754831267201094"
+					},
+					{
+						"name": "Teal",
+						"value": "808754950606684241"
+					},
+					{
+						"name": "Fuchsia",
+						"value": "808755178475880459"
+					}
+				]
+			}
+		]
+	},
+	"role": {
+		"name": "role",
+		"description": "Give yourself a role!",
+		"options": [
+			{
+				"name": "name",
+				"description": "Choose a role to add or remove!",
+				"type": 3,
+				"required": true,
+				"choices": [
+					{
+						"name": "allies",
+						"value": "allies"
+					},
+					{
+						"name": "enemies",
+						"value": "enemies"
+					},
+					{
+						"name": "neutral",
+						"value": "neutral"
+					},
+					{
+						"name": "danger",
+						"value": "danger"
+					}
+				]
+			}
+		]
+	},
+	"help": {
+		"name": "help",
+		"description": "Shows information about Galaxy Commander",
+		"options": [
+			{
+				"name": "command",
+				"description": "Shows information about the requested command",
+				"type": 3,
+				"required": false
+			}
+		]
+	}
+}

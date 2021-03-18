@@ -1,4 +1,3 @@
-const {MessageEmbed} = require("discord.js");
 const {SlashCommand, Utils} = require("../lib");
 
 class ClientCommand extends SlashCommand {
@@ -19,13 +18,11 @@ class ClientCommand extends SlashCommand {
     }
 
     async help(interaction) {
-        const embed = new MessageEmbed()
-        .setColor("")
-
         this.client.utils.sendResponse(this.client, interaction, {
-            type: 4,
+            type: 3, // DEPRECATED TYPE (this will be changed once the type is removed by Discord)
             data: {
-                embeds: []
+                content: "> :ringed_planet: **Galaxy Commander Help**\n\n:sparkles: Help - *Shows information about Galaxy Commander's commands*\n:sparkles: Color - *Give yourself a color*\n:sparkles: Role - *Give yourself a role*",
+                flags: 64
             }
         });
     }
