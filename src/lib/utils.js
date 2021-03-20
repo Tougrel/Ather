@@ -1,6 +1,9 @@
 const {readFileSync, readdirSync} = require("fs");
 
 class Utils {
+    /**
+     * TODO: Document
+     */
     constants = {
         logger: {
             magenta: "\x1b[35m",
@@ -15,6 +18,10 @@ class Utils {
             reset: "\x1b[0m",
             bold: "\x1b[1m"
         },
+        emoji: {
+            accepted: "822767038866259969",
+            denied: "822767039327502376"
+        }
     }
 
     /**
@@ -22,10 +29,26 @@ class Utils {
      */
     commands = JSON.parse(readFileSync("./data/commands.json").toString());
 
+    /**
+     * Client config
+     */
+    config = JSON.parse(readFileSync("./data/config.json").toString());
+
+    /**
+     * TODO: Document
+     * @param {*} client 
+     * @param {*} interaction 
+     * @param {*} data 
+     */
     sendResponse = (client, interaction, data) => {
         client.api.interactions(interaction.id, interaction.token).callback.post({data: data});
     }
 
+    /**
+     * TODO: Document
+     * @param {*} client 
+     * @returns this
+     */
     loadCommands = async (client) => {
         const list = await client.api.applications(client.user.id).guilds(process.env.GUILD_ID).commands.get();
 
@@ -43,7 +66,7 @@ class Utils {
                 // Add the command.
                 if (!cmd) return await client.api.applications(client.user.id)
                     .guilds(process.env.GUILD_ID).commands
-                    .delete(command);
+                    .post(command);
 
                 await client.api.applications(client.user.id)
                     .guilds(process.env.GUILD_ID).commands(cmd.id)
@@ -53,6 +76,11 @@ class Utils {
         return this;
     }
 
+    /**
+     * TODO: Document
+     * @param {*} client 
+     * @returns this
+     */
     loadEvents = (client) => {
         readdirSync("./src/events")
             .filter((file) => file.endsWith(".js"))
