@@ -18,7 +18,7 @@ class Utils {
             reset: "\x1b[0m",
             bold: "\x1b[1m"
         },
-        emoji: {
+        emojis: {
             accepted: "822767038866259969",
             denied: "822767039327502376"
         }
