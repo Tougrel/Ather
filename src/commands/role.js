@@ -13,7 +13,7 @@ class ClientCommand extends SlashCommand {
         this.user = interaction.member.user.id;
         this.member = guild.member(this.user);
 
-        const role = list.find((r) => {
+        const role = client.config.roleCommand.find((r) => {
             return r.name === this.options[0].value;
         });
 
