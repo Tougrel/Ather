@@ -13,7 +13,7 @@ class ClientCommand extends SlashCommand {
         this.member = guild.member(this.user);
         this.guild = guild;
         this.client = client;
-        this.roles = client.config.roles;
+        this.roles = client.utils.config.roles;
 
         await this.manageRole(interaction);
     }
