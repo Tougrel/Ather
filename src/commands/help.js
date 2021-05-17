@@ -19,7 +19,7 @@ class ClientCommand extends SlashCommand {
 
     async help(interaction) {
         this.client.utils.sendResponse(this.client, interaction, {
-            type: 3, // DEPRECATED TYPE (this will be changed once the type is removed by Discord)
+            type: 4, // DEPRECATED TYPE (this will be changed once the type is removed by Discord)
             data: {
                 content: "> :ringed_planet: **Galaxy Commander Help**\n\n:sparkles: Help - *Shows information about Galaxy Commander's commands*\n:sparkles: Color - *Give yourself a color*\n:sparkles: Role - *Give yourself a role*",
                 flags: 64

@@ -4,6 +4,6 @@ module.exports = {
         if (member.user.bot) return;
         if (member.partial) await member.fetch();
         
-        member.roles.add(client.config.memberRole);
+        member.roles.add(client.utils.config.memberRole);
     }
 }

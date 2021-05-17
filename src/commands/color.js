@@ -24,7 +24,7 @@ class ClientCommand extends SlashCommand {
 
         // If role does not exist stop here
         if (!this.options[0].value) return this.client.utils.sendResponse(this.client, interaction, {
-            type: 3,
+            type: 4,
             data: {content: `${xmark} Role ${this.options[0].value} not found!`, flags: 64}
         });
 
@@ -36,7 +36,7 @@ class ClientCommand extends SlashCommand {
         // Add the new role to user
         await this.member.roles.add(this.options[0].value).catch((err) => console.error(err));
         this.client.utils.sendResponse(this.client, interaction, {
-            type: 3,
+            type: 4,
             data: {
                 content: `${cmark} Successfully added **${this.guild.roles.cache.get(this.options[0].value).name}** color to ${this.member}!`,
                 flags: 64
