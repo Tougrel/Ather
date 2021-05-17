@@ -26,7 +26,7 @@ class ClientCommand extends SlashCommand {
 
         // If role does not exist stop here
         if (!role) return this.client.utils.sendResponse(this.client, interaction, {
-            type: 3,
+            type: 4,
             data: {content: `${xmark} Role ${this.options[0].value} not found!`, flags: 64}
         });
 
