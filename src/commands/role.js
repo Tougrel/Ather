@@ -37,7 +37,7 @@ class ClientCommand extends SlashCommand {
 
         // Respond to the interaction
         this.client.utils.sendResponse(this.client, interaction, {
-            type: 3,
+            type: 4,
             data: {content: `${cmark} Successfully added ${this.options[0].value} role to ${this.member}!`, flags: 64}
         });
     }
